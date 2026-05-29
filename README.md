@@ -27,6 +27,33 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173)
 
+## Deploy
+
+Works on any static host. Build output goes to the `dist` folder.
+
+| Setting | Value |
+|---------|--------|
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Node version | 18+ |
+
+`vercel.json` and `netlify.toml` are included so React Router routes work after deploy.
+
+### Vercel (recommended)
+
+1. Push the repo to GitHub.
+2. Go to [vercel.com/new](https://vercel.com/new) and import the repo.
+3. Leave defaults (Vite is auto-detected) and click **Deploy**.
+
+### Netlify
+
+1. Go to [app.netlify.com/start](https://app.netlify.com/start) and connect GitHub.
+2. Netlify reads `netlify.toml` automatically. Click **Deploy**.
+
+### GitHub Pages
+
+Add your repo name to `vite.config.js` (`base: '/bazaarx/'`), then use a GitHub Actions workflow or deploy the `dist` folder from the `gh-pages` branch.
+
 ## Stack
 
 - React + Vite
