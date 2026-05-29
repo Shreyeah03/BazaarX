@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-surface text-gray-100 font-sans min-h-screen font-medium;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-bold tracking-tight;
+  }
+
+  html.light body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.06] backdrop-blur-xl border border-white/10 shadow-glass;
+  }
+
+  html.light .glass {
+    @apply bg-white/70 border-gray-200/80 shadow-lg;
+  }
+
+  .glass-hover {
+    @apply transition-all duration-300 hover:bg-white/[0.09] hover:border-white/20 hover:shadow-glow;
+  }
+
+  html.light .glass-hover:hover {
+    @apply bg-white/90 border-gray-300 shadow-md;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-purple to-accent-orange bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-2xl font-bold bg-gradient-to-r from-accent-purple to-accent-orange
+           text-white shadow-glow hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200;
+  }
+
+  .btn-ghost {
+    @apply px-6 py-3 rounded-2xl font-semibold glass glass-hover text-gray-200;
+  }
+
+  html.light .btn-ghost {
+    @apply text-gray-700;
+  }
+
+  .section-title {
+    @apply font-display text-3xl md:text-4xl font-extrabold mb-2 tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-gray-400 text-base md:text-lg mb-10 max-w-xl;
+  }
+
+  html.light .section-subtitle {
+    @apply text-gray-600;
+  }
+}

@@ -1,0 +1,285 @@
+[
+  {
+    "id": "1",
+    "name": "Nexus Air Runner",
+    "category": "Sneakers",
+    "price": 8999,
+    "originalPrice": 12999,
+    "rating": 4.8,
+    "reviews": 234,
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1460353581641-37baddab0fa0?auto=format&fit=crop&w=800&q=80"
+    ],
+    "description": "Mesh upper, cushioned sole. Fine for daily wear and short runs.",
+    "sizes": ["7", "8", "9", "10", "11"],
+    "trending": true,
+    "featured": true,
+    "reviewList": [
+      { "id": 1, "author": "Arjun M.", "rating": 5, "comment": "Comfortable for long walks. No complaints after two months.", "date": "Jan 2026" },
+      { "id": 2, "author": "Priya S.", "rating": 5, "comment": "Fit is true to size. Colour matches the photos.", "date": "Dec 2025" }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Mumbai Street Hoodie",
+    "category": "Streetwear",
+    "price": 3499,
+    "originalPrice": 4499,
+    "rating": 4.6,
+    "reviews": 128,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=600&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=80"
+    ],
+    "description": "Heavy fleece hoodie, small logo on the chest. Runs a little roomy.",
+    "sizes": ["S", "M", "L", "XL"],
+    "trending": true,
+    "featured": false,
+    "reviewList": [
+      { "id": 1, "author": "Rohan K.", "rating": 4, "comment": "Thick fabric. Size up if you want a tighter fit.", "date": "Feb 2026" }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Chrono Elite 42",
+    "category": "Watches",
+    "price": 24999,
+    "originalPrice": 32999,
+    "rating": 4.9,
+    "reviews": 89,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1587836374828-4dbafa94ef0a?auto=format&fit=crop&w=800&q=80"
+    ],
+    "description": "Automatic chronograph, sapphire glass, 100 m water resistance.",
+    "trending": false,
+    "featured": true,
+    "reviewList": [
+      { "id": 1, "author": "Vikram D.", "rating": 5, "comment": "Solid build. Gets noticed without looking loud.", "date": "Jan 2026" }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Pulse Buds Pro",
+    "category": "Headphones",
+    "price": 5999,
+    "originalPrice": 7999,
+    "rating": 4.7,
+    "reviews": 412,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=800&q=80"
+    ],
+    "description": "Noise cancelling earbuds, about 40 hours battery with the case.",
+    "trending": true,
+    "featured": true,
+    "reviewList": [
+      { "id": 1, "author": "Ananya R.", "rating": 5, "comment": "Blocks train noise well. Battery holds up for the week.", "date": "Feb 2026" }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "AeroFlex Pro",
+    "category": "Sneakers",
+    "price": 7499,
+    "rating": 4.5,
+    "reviews": 156,
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80",
+    "images": ["https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80"],
+    "description": "Suede overlays, flexible sole. Works for all-day wear.",
+    "sizes": ["7", "8", "9", "10"],
+    "trending": true,
+    "featured": false
+  },
+  {
+    "id": "6",
+    "name": "Neon Pulse Watch",
+    "category": "Watches",
+    "price": 18999,
+    "rating": 4.8,
+    "reviews": 67,
+    "image": "https://images.unsplash.com/photo-1587836374828-4dbafa94ef0a?auto=format&fit=crop&w=600&q=80",
+    "images": ["https://images.unsplash.com/photo-1587836374828-4dbafa94ef0a?auto=format&fit=crop&w=800&q=80"],
+    "description": "Hybrid dial, GPS, heart rate. Charges with the included dock.",
+    "trending": false,
+    "featured": true
+  },
+  {
+    "id": "7",
+    "name": "Urban Tech Tee",
+    "category": "Streetwear",
+    "price": 1999,
+    "rating": 4.4,
+    "reviews": 203,
+    "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80",
+    "images": ["https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=80"],
+    "description": "Quick-dry fabric, small reflective print on the back.",
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "trending": false,
+    "featured": false
+  },
+  {
+    "id": "8",
+    "name": "HyperX Cloud Alpha",
+    "category": "Gaming accessories",
+    "price": 8999,
+    "rating": 4.9,
+    "reviews": 521,
+    "image": "https://images.unsplash.com/photo-1599669454699-248893623440?auto=format&fit=crop&w=600&q=80",
+    "images": ["https://images.unsplash.com/photo-1599669454699-248893623440?auto=format&fit=crop&w=800&q=80"],
+    "description": "Closed-back headset, dual drivers. Mic arm included.",
+    "trending": true,
+    "featured": false,
+    "reviewList": [
+      { "id": 1, "author": "Dev P.", "rating": 5, "comment": "Good sound for the price. Mic is clear on Discord.", "date": "Jan 2026" }
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Smart Ring X",
+    "category": "Smart gadgets",
+    "price": 14999,
+    "rating": 4.6,
+    "reviews": 94,
+    "image": "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?auto=format&fit=crop&w=600&q=80",
+    "images": ["https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?auto=format&fit=crop&w=800&q=80"],
+    "description": "Titanium ring, sleep and SpO2 tracking. Roughly a week per charge.",
+    "trending": false,
+    "featured": true
+  },
+  {
+    "id": "10",
+    "name": "Bass Drop Max",
+    "category": "Headphones",
+    "price": 4499,
+    "rating": 4.5,
+    "reviews": 287,
+    "image": "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=600&q=80",
+    "images": ["https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=800&q=80"],
+    "description": "Over-ear headphones, strong bass. Folds flat in the bag.",
+    "trending": false,
+    "featured": false
+  },
+  {
+    "id": "11",
+    "name": "Retro Runner 90",
+    "category": "Sneakers",
+    "price": 6499,
+    "rating": 4.7,
+    "reviews": 178,
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80",
+    "images": ["https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80"],
+    "description": "Retro runner, gum sole, mixed materials on the upper.",
+    "sizes": ["7", "8", "9", "10", "11"],
+    "trending": true,
+    "featured": false
+  },
+  {
+    "id": "12",
+    "name": "RGB Gaming Mouse",
+    "category": "Gaming accessories",
+    "price": 2999,
+    "rating": 4.8,
+    "reviews": 634,
+    "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=600&q=80",
+    "images": ["https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=800&q=80"],
+    "description": "26K DPI sensor, RGB zones, lightweight shell.",
+    "trending": false,
+    "featured": false
+  },
+  {
+    "id": "13",
+    "name": "Delhi Denim Jacket",
+    "category": "Streetwear",
+    "price": 4999,
+    "originalPrice": 6499,
+    "rating": 4.6,
+    "reviews": 112,
+    "image": "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=600&q=80",
+    "images": ["https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=800&q=80"],
+    "description": "Washed denim jacket with a small BazaarX patch. Relaxed cut.",
+    "sizes": ["S", "M", "L", "XL"],
+    "trending": true,
+    "featured": false
+  },
+  {
+    "id": "14",
+    "name": "Flux Wireless Charger",
+    "category": "Smart gadgets",
+    "price": 2499,
+    "rating": 4.5,
+    "reviews": 198,
+    "image": "https://images.unsplash.com/photo-1586816879360-004f605224a8?auto=format&fit=crop&w=600&q=80",
+    "images": ["https://images.unsplash.com/photo-1586816879360-004f605224a8?auto=format&fit=crop&w=800&q=80"],
+    "description": "15W wireless pad, works with MagSafe phones. LED ring shows charge status.",
+    "trending": false,
+    "featured": false
+  },
+  {
+    "id": "15",
+    "name": "Stealth Low Top",
+    "category": "Sneakers",
+    "price": 5499,
+    "rating": 4.4,
+    "reviews": 89,
+    "image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa0?auto=format&fit=crop&w=600&q=80",
+    "images": ["https://images.unsplash.com/photo-1460353581641-37baddab0fa0?auto=format&fit=crop&w=800&q=80"],
+    "description": "All-black leather low top. Plain design, no big logos.",
+    "sizes": ["7", "8", "9", "10"],
+    "trending": false,
+    "featured": false
+  },
+  {
+    "id": "16",
+    "name": "Studio Monitor Headphones",
+    "category": "Headphones",
+    "price": 7999,
+    "originalPrice": 9999,
+    "rating": 4.9,
+    "reviews": 156,
+    "image": "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&w=600&q=80",
+    "images": ["https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&w=800&q=80"],
+    "description": "Flat tuning for monitoring. Detachable cable, padded cups.",
+    "trending": true,
+    "featured": true,
+    "reviewList": [
+      { "id": 1, "author": "Karan J.", "rating": 5, "comment": "Neutral sound. Fine for home recording.", "date": "Feb 2026" }
+    ]
+  },
+  {
+    "id": "17",
+    "name": "Mechanical Keyboard Pro",
+    "category": "Gaming accessories",
+    "price": 6999,
+    "rating": 4.7,
+    "reviews": 342,
+    "image": "https://images.unsplash.com/photo-1511467597852-7f38a257b4b7?auto=format&fit=crop&w=600&q=80",
+    "images": ["https://images.unsplash.com/photo-1511467597852-7f38a257b4b7?auto=format&fit=crop&w=800&q=80"],
+    "description": "Hot-swap mechanical board, per-key RGB, gasket mount.",
+    "trending": true,
+    "featured": false
+  },
+  {
+    "id": "18",
+    "name": "Heritage Gold Watch",
+    "category": "Watches",
+    "price": 32999,
+    "originalPrice": 39999,
+    "rating": 4.9,
+    "reviews": 45,
+    "image": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d6?auto=format&fit=crop&w=600&q=80",
+    "images": ["https://images.unsplash.com/photo-1614164185128-e4ec99c436d6?auto=format&fit=crop&w=800&q=80"],
+    "description": "Gold-tone dress watch, see-through caseback, hand-finished dial.",
+    "trending": false,
+    "featured": true,
+    "reviewList": [
+      { "id": 1, "author": "Meera L.", "rating": 5, "comment": "Looks better in person. Heavy but balanced on the wrist.", "date": "Jan 2026" }
+    ]
+  }
+]
