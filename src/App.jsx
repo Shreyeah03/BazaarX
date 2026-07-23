@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
 import { WishlistProvider } from './context/WishlistContext'
 import { ToastProvider } from './context/ToastContext'
+import { AuthProvider } from './context/AuthContext'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import CartDrawer from './components/cart/CartDrawer'
@@ -22,19 +23,21 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <ToastProvider>
-        <CartProvider>
-          <WishlistProvider>
-            <div className="min-h-screen bg-surface">
-              <Navbar theme={theme} toggleTheme={toggleTheme} />
-              <AppRoutes />
-              <Footer />
-              <CartDrawer />
-              <ToastContainer />
-            </div>
-          </WishlistProvider>
-        </CartProvider>
-      </ToastProvider>
+      <AuthProvider>
+        <ToastProvider>
+          <CartProvider>
+            <WishlistProvider>
+              <div className="min-h-screen bg-surface">
+                <Navbar theme={theme} toggleTheme={toggleTheme} />
+                <AppRoutes />
+                <Footer />
+                <CartDrawer />
+                <ToastContainer />
+              </div>
+            </WishlistProvider>
+          </CartProvider>
+        </ToastProvider>
+      </AuthProvider>
     </BrowserRouter>
   )
 }

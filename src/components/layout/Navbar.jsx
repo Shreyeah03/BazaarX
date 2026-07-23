@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ShoppingBag, Heart, Search, Sun, Moon } from 'lucide-react'
+import { Menu, X, ShoppingBag, Heart, Search, Sun, Moon, LogIn, LogOut } from 'lucide-react'
 import { useCart } from '../../context/CartContext'
 import { useWishlist } from '../../context/WishlistContext'
+import { useAuth } from '../../context/AuthContext'
+import AuthModal from '../ui/AuthModal'
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -16,9 +18,11 @@ export default function Navbar({ theme, toggleTheme }) {
   const [open, setOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  const [authOpen, setAuthOpen] = useState(false)
   const navigate = useNavigate()
   const { cartCount, openDrawer } = useCart()
   const { wishlistCount } = useWishlist()
+  const { isAuthenticated, user, logout } = useAuth()
 
   const handleSearch = (e) => {
     e.preventDefault()
@@ -97,6 +101,14 @@ export default function Navbar({ theme, toggleTheme }) {
                 </span>
               )}
             </Link>
+            <button
+              type="button"
+              onClick={() => (isAuthenticated ? logout() : setAuthOpen(true))}
+              className="hidden sm:flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm font-medium text-gray-300 transition hover:text-white"
+            >
+              {isAuthenticated ? <LogOut className="h-4 w-4" /> : <LogIn className="h-4 w-4" />}
+              {isAuthenticated ? 'Logout' : 'Login'}
+            </button>
             <button
               type="button"
               onClick={openDrawer}
@@ -182,6 +194,19 @@ export default function Navbar({ theme, toggleTheme }) {
               <li className="border-t border-white/10 mt-2 pt-2">
                 <button
                   type="button"
+                  onClick={() => {
+                    setOpen(false)
+                    setAuthOpen(true)
+                  }}
+                  className="flex items-center gap-3 py-3 px-2 w-full text-gray-300 hover:text-white"
+                >
+                  {isAuthenticated ? <LogOut className="w-5 h-5" /> : <LogIn className="w-5 h-5" />}
+                  {isAuthenticated ? 'Logout' : 'Login'}
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
                   onClick={toggleTheme}
                   className="flex items-center gap-3 py-3 px-2 w-full text-gray-300 hover:text-white"
                 >
@@ -193,6 +218,8 @@ export default function Navbar({ theme, toggleTheme }) {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
     </header>
   )
 }
