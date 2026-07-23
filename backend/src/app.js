@@ -10,9 +10,17 @@ import { notFound, errorHandler } from './middleware/errorHandler.js'
 
 const app = express()
 
-const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173')
-  .split(',')
-  .map((o) => o.trim())
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+  'http://localhost:3000',
+  'https://bazaar-x-livid.vercel.app',
+  'https://www.bazaar-x-livid.vercel.app',
+  ...(process.env.CLIENT_URL || '')
+    .split(',')
+    .map((o) => o.trim())
+    .filter(Boolean),
+]
 
 app.use(
   cors({
@@ -29,6 +37,8 @@ app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'))
 app.get('/api/health', (_req, res) => {
   res.json({ success: true, message: 'BazaarX API is running' })
 })
+
+app.options('*', cors())
 
 app.use('/api/auth', authRoutes)
 app.use('/api/products', productRoutes)
