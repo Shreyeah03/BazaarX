@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BazaarX Internship Presentation – Shreya Khacharia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0c0a12;
+      --purple: #a855f7;
+      --orange: #f97316;
+      --text: #f3f0fa;
+      --muted: #a8a3b8;
+      --card: rgba(255,255,255,0.06);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; background: #000; color: var(--text); font-family: "Plus Jakarta Sans", system-ui, sans-serif; }
+    .deck { height: 100%; overflow: hidden; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: none; flex-direction: column; justify-content: center;
+      padding: 4.5vh 7vw 8vh;
+      background:
+        radial-gradient(at 15% 20%, rgba(168,85,247,0.22), transparent 45%),
+        radial-gradient(at 85% 75%, rgba(249,115,22,0.15), transparent 40%),
+        var(--bg);
+      border-left: 8px solid transparent;
+      border-image: linear-gradient(var(--purple), var(--orange)) 1;
+    }
+    .slide.active { display: flex; animation: fade 0.35s ease; }
+    @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    h1 { font-family: Fraunces, Georgia, serif; font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.15; margin-bottom: 0.6rem; }
+    h2 { font-family: Fraunces, Georgia, serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 1.4rem; }
+    .eyebrow { color: var(--orange); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 0.8rem; }
+    .subtitle { color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.25rem); margin-bottom: 1.5rem; max-width: 48rem; }
+    ul { list-style: none; display: grid; gap: 0.75rem; max-width: 58rem; }
+    ul li { position: relative; padding-left: 1.3rem; font-size: clamp(0.95rem, 1.5vw, 1.15rem); line-height: 1.45; color: #ddd6ef; }
+    ul li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 0.45rem; height: 0.45rem; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--orange)); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2.5rem; max-width: 60rem; }
+    .meta { margin-top: 1.5rem; display: grid; gap: 0.45rem; color: var(--muted); font-size: clamp(0.85rem, 1.3vw, 1.05rem); text-align: center; }
+    .center { text-align: center; align-items: center; }
+    .center ul { text-align: left; }
+    .card {
+      background: var(--card); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem; padding: 1.1rem 1.25rem; backdrop-filter: blur(10px);
+    }
+    .card h3 { font-size: 1rem; color: var(--orange); margin-bottom: 0.55rem; }
+    .card p, .card li { font-size: 0.95rem; color: #d4cfe3; }
+    .footer-bar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.75rem 1.5rem; background: rgba(0,0,0,0.45); backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.8rem; color: var(--muted);
+    }
+    .nav-btns { display: flex; gap: 0.5rem; }
+    button {
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      color: white; border-radius: 0.55rem; padding: 0.4rem 0.85rem; cursor: pointer; font: inherit;
+    }
+    button:hover { background: rgba(168,85,247,0.35); }
+    .hint { opacity: 0.8; }
+    @media (max-width: 800px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .slide { padding: 3.5vh 5vw 10vh; }
+    }
+    @media print {
+      .footer-bar { display: none; }
+      .slide { position: relative; display: flex !important; page-break-after: always; min-height: 100vh; animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck" id="deck">
+
+    <!-- 1 -->
+    <section class="slide active center">
+      <p class="eyebrow">Internship Presentation</p>
+      <h1>BazaarX</h1>
+      <p class="subtitle">Modern E-Commerce Web Application</p>
+      <div class="meta">
+        <div><strong style="color:#fff">Shreya Khacharia</strong> &nbsp;|&nbsp; Enrollment No.: <strong style="color:#fff">12302040701170</strong></div>
+        <div>Madhuben &amp; Bhanubhai Patel Institute of Technology (MBIT)</div>
+        <div>B.Tech in Computer Engineering</div>
+        <div>Company: <strong style="color:#fff">Prelytix Private Limited</strong> &nbsp;|&nbsp; Duration: <strong style="color:#fff">12/05/2026 – 27/05/2026</strong></div>
+        <div>Guide: <strong style="color:#fff">Anjali Suthar</strong> &nbsp;|&nbsp; HOD: <strong style="color:#fff">Dr. Gopi Bhatt</strong></div>
+        <div>Date: 17 July 2026</div>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="slide">
+      <p class="eyebrow">Slide 02</p>
+      <h2>About the Internship</h2>
+      <ul>
+        <li>Organization: Prelytix Private Limited</li>
+        <li>Duration: 12 May 2026 to 27 May 2026 (2 weeks)</li>
+        <li>Domain: Frontend Web Development and UI/UX</li>
+        <li>Assigned project: BazaarX – a modern e-commerce web application</li>
+        <li>Industry Guide: Anjali Suthar</li>
+        <li>Academic Head: Dr. Gopi Bhatt, Head of Department, Computer Engineering, MBIT</li>
+        <li>Goal: Build a production-style React frontend with real shopping UI flows</li>
+      </ul>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide">
+      <p class="eyebrow">Slide 03</p>
+      <h2>Project Overview – BazaarX</h2>
+      <ul>
+        <li>Frontend store for sneakers, streetwear, watches, headphones, and gadgets</li>
+        <li>Dark modern glass UI with purple and orange accents</li>
+        <li>Focus on reusable components, responsive layout, and smooth interactions</li>
+        <li>Product catalog from JSON data with INR pricing</li>
+        <li>Cart and wishlist saved in browser using localStorage</li>
+        <li>Prepared for GitHub hosting and cloud deploy (Vercel / Netlify)</li>
+      </ul>
+    </section>
+
+    <!-- 4 -->
+    <section class="slide">
+      <p class="eyebrow">Slide 04</p>
+      <h2>Objectives</h2>
+      <ul>
+        <li>Develop homepage, shop, and product detail experiences</li>
+        <li>Implement search, filtering, sorting, and pagination</li>
+        <li>Build cart and wishlist with quantity control and persistence</li>
+        <li>Apply modern UX: animations, toasts, skeleton loaders, theme toggle</li>
+        <li>Organize code into pages, components, context, and utilities</li>
+        <li>Make the project deployment-ready as a static SPA</li>
+      </ul>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide">
+      <p class="eyebrow">Slide 05</p>
+      <h2>Technology Stack</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Core</h3>
+          <ul>
+            <li>React.js 18</li>
+            <li>Vite</li>
+            <li>Tailwind CSS</li>
+            <li>React Router DOM</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Supporting tools</h3>
+          <ul>
+            <li>Framer Motion (animation)</li>
+            <li>Lucide React (icons)</li>
+            <li>Context API + localStorage</li>
+            <li>Fraunces + Plus Jakarta Sans</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide">
+      <p class="eyebrow">Slide 06</p>
+      <h2>System Architecture</h2>
+      <ul>
+        <li><strong>Pages:</strong> Home, Shop, Product Detail, Wishlist, Checkout (placeholder)</li>
+        <li><strong>UI components:</strong> Navbar, Footer, ProductCard, CartDrawer, Toast, Skeleton</li>
+        <li><strong>State:</strong> CartContext, WishlistContext, ToastContext</li>
+        <li><strong>Data:</strong> products.json + helpers for price, filters, and images</li>
+        <li><strong>Routing:</strong> AppRoutes with React Router</li>
+        <li><strong>Persistence:</strong> bazaarx-cart and bazaarx-wishlist in localStorage</li>
+        <li>Frontend-only architecture suitable for static hosting</li>
+      </ul>
+    </section>
+
+    <!-- 7 -->
+    <section class="slide">
+      <p class="eyebrow">Slide 07</p>
+      <h2>Modules and Features</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Shopping experience</h3>
+          <ul>
+            <li>Landing sections (hero, trending, categories)</li>
+            <li>Shop filters: category, price, rating</li>
+            <li>Product gallery with zoom-on-hover</li>
+            <li>Reviews and related products</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>User tools</h3>
+          <ul>
+            <li>Animated cart drawer + subtotal</li>
+            <li>Wishlist save / move to cart</li>
+            <li>Dark / light theme toggle</li>
+            <li>18 products across 6 categories</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="slide">
+      <p class="eyebrow">Slide 08</p>
+      <h2>Implementation Highlights</h2>
+      <ul>
+        <li>Shared state with Context API for cart, wishlist, and notifications</li>
+        <li>Multi-filter shop listing with 8 products per page</li>
+        <li>ProductImage fallback for broken remote images</li>
+        <li>INR formatting using Intl.NumberFormat (en-IN)</li>
+        <li>Responsive layout for mobile, tablet, and desktop</li>
+        <li>vercel.json and netlify.toml added for SPA routing after deploy</li>
+        <li>UI copy refined for a clean, professional product feel</li>
+      </ul>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide">
+      <p class="eyebrow">Slide 09</p>
+      <h2>Learning Outcomes</h2>
+      <ul>
+        <li>Hands-on practice with React components and Vite workflow</li>
+        <li>Client-side state management using Context API</li>
+        <li>Routing, filtering, sorting, and pagination in a real UI</li>
+        <li>Tailwind CSS and motion-based interface polish</li>
+        <li>localStorage for cart/wishlist without a backend</li>
+        <li>GitHub project structure and static deployment basics</li>
+        <li>Maintainable folder structure for frontend projects</li>
+      </ul>
+    </section>
+
+    <!-- 10 -->
+    <section class="slide center">
+      <p class="eyebrow">Slide 10</p>
+      <h2>Conclusion &amp; Thank You</h2>
+      <p class="subtitle" style="text-align:center; margin-left:auto; margin-right:auto;">
+        BazaarX shows a complete frontend shopping experience with modular React architecture and deploy-ready setup.
+        Future scope: authentication, APIs, payment gateway, and admin panel.
+      </p>
+      <div class="meta">
+        <div style="color:var(--orange); font-size:1.2rem; font-weight:700;">Thank you for your guidance and support.</div>
+        <div>Guide: Anjali Suthar &nbsp;|&nbsp; HOD: Dr. Gopi Bhatt</div>
+        <div>Prelytix Private Limited &nbsp;|&nbsp; MBIT – B.Tech Computer Engineering</div>
+        <div>Shreya Khacharia &nbsp;|&nbsp; 12302040701170 &nbsp;|&nbsp; 17 July 2026</div>
+      </div>
+    </section>
+  </div>
+
+  <div class="footer-bar">
+    <span>BazaarX Internship Presentation</span>
+    <span class="hint">← → or Space to navigate &nbsp;|&nbsp; F for fullscreen &nbsp;|&nbsp; Ctrl+P to save PDF</span>
+    <div class="nav-btns">
+      <button type="button" id="prev">Prev</button>
+      <span id="counter">1 / 10</span>
+      <button type="button" id="next">Next</button>
+    </div>
+  </div>
+
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    let i = 0;
+    const counter = document.getElementById('counter');
+    function show(n) {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+      counter.textContent = `${i + 1} / ${slides.length}`;
+    }
+    document.getElementById('prev').onclick = () => show(i - 1);
+    document.getElementById('next').onclick = () => show(i + 1);
+    document.addEventListener('keydown', (e) => {
+      if (['ArrowRight', ' ', 'PageDown', 'Enter'].includes(e.key)) { e.preventDefault(); show(i + 1); }
+      if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); show(i - 1); }
+      if (e.key.toLowerCase() === 'f') {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+        else document.exitFullscreen();
+      }
+    });
+  </script>
+</body>
+</html>
