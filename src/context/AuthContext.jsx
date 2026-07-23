@@ -2,7 +2,7 @@ import { createContext, useContext, useMemo, useState } from 'react'
 
 const AuthContext = createContext(null)
 const STORAGE_KEY = 'bazaarx-auth'
-const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '')
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'https://bazaarx-backend.onrender.com/api').replace(/\/$/, '')
 
 function readStoredAuth() {
   if (typeof window === 'undefined') return { token: null, user: null }
@@ -18,26 +18,34 @@ function readStoredAuth() {
 }
 
 async function request(endpoint, payload, method = 'POST') {
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-    method,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: payload ? JSON.stringify(payload) : undefined,
-  })
-
-  let data = {}
   try {
-    data = await response.json()
-  } catch {
-    data = {}
-  }
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+      method,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: payload ? JSON.stringify(payload) : undefined,
+    })
 
-  if (!response.ok) {
-    throw new Error(data?.message || 'Authentication failed')
-  }
+    let data = {}
+    try {
+      data = await response.json()
+    } catch {
+      data = {}
+    }
 
-  return data
+    if (!response.ok) {
+      throw new Error(data?.message || 'Authentication failed')
+    }
+
+    return data
+  } catch (error) {
+    throw new Error(
+      error instanceof Error && error.message
+        ? error.message
+        : 'Unable to reach the BazaarX backend. Please check the API URL or try again later.'
+    )
+  }
 }
 
 export function AuthProvider({ children }) {
