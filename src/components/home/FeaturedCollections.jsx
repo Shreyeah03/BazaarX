@@ -2,30 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import ProductImage from '../ui/ProductImage'
 import { ArrowRight, Zap } from 'lucide-react'
-
-const collections = [
-  {
-    id: 'monsoon-street',
-    title: 'Monsoon Street',
-    subtitle: 'Rain-ready shoes and layers',
-    image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=800&q=80',
-    tag: 'Limited',
-  },
-  {
-    id: 'tech-minimal',
-    title: 'Tech Minimal',
-    subtitle: 'Desk gear and daily carry',
-    image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=800&q=80',
-    tag: 'New',
-  },
-  {
-    id: 'night-run',
-    title: 'Night Run',
-    subtitle: 'Reflective pieces for night runs',
-    image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80',
-    tag: 'Trending',
-  },
-]
+import { collections } from '../../data/collections'
 
 export default function FeaturedCollections() {
   return (
@@ -37,6 +14,9 @@ export default function FeaturedCollections() {
             <h2 className="section-title">Featured Collections</h2>
             <p className="section-subtitle mb-0">Seasonal picks from the BazaarX team.</p>
           </div>
+          <Link to="/collections" className="btn-ghost inline-flex items-center gap-2 self-start sm:self-center">
+            View all <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">

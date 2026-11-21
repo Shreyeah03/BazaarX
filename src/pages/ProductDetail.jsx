@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Star, Heart, ShoppingBag, Minus, Plus, ChevronLeft } from 'lucide-react'
+import { Star, Heart, ShoppingBag, Minus, Plus, ChevronLeft, Scale } from 'lucide-react'
 import { getProductById, getSimilarProducts } from '../utils/products'
 import { formatPrice } from '../utils/formatPrice'
 import { useCart } from '../context/CartContext'
+import { useCompare, MAX_COMPARE_PRODUCTS } from '../context/CompareContext'
 import { useWishlist } from '../context/WishlistContext'
 import { useToast } from '../context/ToastContext'
 import ProductCard from '../components/ui/ProductCard'
@@ -19,6 +20,7 @@ export default function ProductDetail() {
   const [zoom, setZoom] = useState({ x: 50, y: 50, active: false })
 
   const { addToCart, openDrawer } = useCart()
+  const { isInCompare, toggleCompare } = useCompare()
   const { isInWishlist, toggleWishlist } = useWishlist()
   const { addToast } = useToast()
 
@@ -26,6 +28,7 @@ export default function ProductDetail() {
   const similar = product ? getSimilarProducts(product) : []
   const images = product?.images?.length ? product.images : product ? [product.image] : []
   const wishlisted = product ? isInWishlist(product.id) : false
+  const comparing = product ? isInCompare(product.id) : false
 
   useEffect(() => {
     setLoading(true)
@@ -55,6 +58,19 @@ export default function ProductDetail() {
     addToast(
       wishlisted ? 'Removed from wishlist' : `${product.name} saved to wishlist`,
       wishlisted ? 'info' : 'success'
+    )
+  }
+
+  const handleCompare = () => {
+    if (!product) return
+    const result = toggleCompare(product.id)
+    if (result === 'limit') {
+      addToast(`You can compare up to ${MAX_COMPARE_PRODUCTS} products`, 'info')
+      return
+    }
+    addToast(
+      result === 'added' ? `${product.name} added to comparison` : `${product.name} removed from comparison`,
+      result === 'added' ? 'success' : 'info'
     )
   }
 
@@ -227,6 +243,16 @@ export default function ProductDetail() {
               >
                 <Heart className={`w-5 h-5 ${wishlisted ? 'fill-current' : ''}`} />
                 {wishlisted ? 'Saved' : 'Wishlist'}
+              </button>
+              <button
+                type="button"
+                onClick={handleCompare}
+                className={`btn-ghost flex items-center gap-2 ${
+                  comparing ? 'text-accent-purple border-accent-purple/30' : ''
+                }`}
+              >
+                <Scale className="w-5 h-5" />
+                {comparing ? 'In comparison' : 'Compare'}
               </button>
             </div>
           </div>

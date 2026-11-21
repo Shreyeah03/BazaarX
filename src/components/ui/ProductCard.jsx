@@ -1,8 +1,9 @@
 import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Star, Heart, ShoppingBag } from 'lucide-react'
+import { Star, Heart, ShoppingBag, Scale } from 'lucide-react'
 import { useCart } from '../../context/CartContext'
+import { useCompare, MAX_COMPARE_PRODUCTS } from '../../context/CompareContext'
 import { useWishlist } from '../../context/WishlistContext'
 import { useToast } from '../../context/ToastContext'
 import { formatPrice } from '../../utils/formatPrice'
@@ -10,6 +11,7 @@ import ProductImage from './ProductImage'
 
 export default function ProductCard({ product, index = 0 }) {
   const { addToCart, openDrawer } = useCart()
+  const { isInCompare, toggleCompare } = useCompare()
   const { isInWishlist, toggleWishlist } = useWishlist()
   const { addToast } = useToast()
 
@@ -21,6 +23,7 @@ export default function ProductCard({ product, index = 0 }) {
   }, [product.originalPrice, product.price])
 
   const wishlisted = isInWishlist(product.id)
+  const comparing = isInCompare(product.id)
 
   const handleAddToCart = (e) => {
     e.preventDefault()
@@ -37,6 +40,20 @@ export default function ProductCard({ product, index = 0 }) {
     addToast(
       wishlisted ? 'Removed from wishlist' : `${product.name} saved to wishlist`,
       wishlisted ? 'info' : 'success'
+    )
+  }
+
+  const handleCompare = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    const result = toggleCompare(product.id)
+    if (result === 'limit') {
+      addToast(`You can compare up to ${MAX_COMPARE_PRODUCTS} products`, 'info')
+      return
+    }
+    addToast(
+      result === 'added' ? `${product.name} added to comparison` : `${product.name} removed from comparison`,
+      result === 'added' ? 'success' : 'info'
     )
   }
 
@@ -60,7 +77,7 @@ export default function ProductCard({ product, index = 0 }) {
               -{discount}%
             </span>
           )}
-          <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-within:opacity-100">
             <button
               type="button"
               onClick={handleWishlist}
@@ -70,6 +87,17 @@ export default function ProductCard({ product, index = 0 }) {
               aria-label={wishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
             >
               <Heart className={`w-4 h-4 ${wishlisted ? 'fill-current' : ''}`} />
+            </button>
+            <button
+              type="button"
+              onClick={handleCompare}
+              className={`p-2 rounded-xl glass transition-colors ${
+                comparing ? 'text-accent-purple' : 'text-gray-300 hover:text-accent-purple'
+              }`}
+              aria-label={comparing ? 'Remove from comparison' : 'Add to comparison'}
+              title={comparing ? 'Remove from comparison' : 'Add to comparison'}
+            >
+              <Scale className="w-4 h-4" />
             </button>
           </div>
           <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">

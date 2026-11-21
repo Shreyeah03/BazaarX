@@ -5,6 +5,9 @@ import Shop from '../pages/Shop'
 import ProductDetail from '../pages/ProductDetail'
 import Wishlist from '../pages/Wishlist'
 import Checkout from '../pages/Checkout'
+import Collections from '../pages/Collections'
+import About from '../pages/About'
+import Compare from '../pages/Compare'
 
 export default function AppRoutes() {
   const location = useLocation()
@@ -14,6 +17,10 @@ export default function AppRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/collections" element={<Collections />} />
+        <Route path="/collections/:collectionId" element={<Collections />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/compare" element={<Compare />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/checkout" element={<Checkout />} />

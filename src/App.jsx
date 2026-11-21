@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
 import { WishlistProvider } from './context/WishlistContext'
+import { CompareProvider } from './context/CompareContext'
 import { ToastProvider } from './context/ToastContext'
 import { AuthProvider } from './context/AuthContext'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import CartDrawer from './components/cart/CartDrawer'
+import CompareBar from './components/compare/CompareBar'
 import ToastContainer from './components/ui/ToastContainer'
 import AppRoutes from './routes/AppRoutes'
 
@@ -27,13 +29,16 @@ export default function App() {
         <ToastProvider>
           <CartProvider>
             <WishlistProvider>
-              <div className="min-h-screen bg-surface">
-                <Navbar theme={theme} toggleTheme={toggleTheme} />
-                <AppRoutes />
-                <Footer />
-                <CartDrawer />
-                <ToastContainer />
-              </div>
+              <CompareProvider>
+                <div className="min-h-screen bg-surface">
+                  <Navbar theme={theme} toggleTheme={toggleTheme} />
+                  <AppRoutes />
+                  <Footer />
+                  <CompareBar />
+                  <CartDrawer />
+                  <ToastContainer />
+                </div>
+              </CompareProvider>
             </WishlistProvider>
           </CartProvider>
         </ToastProvider>

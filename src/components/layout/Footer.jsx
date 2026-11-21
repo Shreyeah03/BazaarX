@@ -3,7 +3,13 @@ import { Instagram, Twitter, Youtube } from 'lucide-react'
 
 const footerLinks = {
   Shop: ['Sneakers', 'Streetwear', 'Watches', 'Headphones'],
-  Company: ['About', 'Careers', 'Press', 'Blog'],
+  Company: [
+    { label: 'About', to: '/about' },
+    { label: 'Collections', to: '/collections' },
+    { label: 'Careers' },
+    { label: 'Press' },
+    { label: 'Blog' },
+  ],
   Support: ['Help Center', 'Shipping', 'Returns', 'Contact'],
 }
 
@@ -37,13 +43,23 @@ export default function Footer() {
             <div key={title}>
               <h4 className="font-semibold text-sm mb-4">{title}</h4>
               <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-sm text-gray-500 hover:text-white transition-colors">
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                {links.map((item) => {
+                  const link = typeof item === 'string' ? { label: item } : item
+                  const className = 'text-sm text-gray-500 hover:text-white transition-colors'
+                  return (
+                    <li key={link.label}>
+                      {link.to ? (
+                        <Link to={link.to} className={className}>
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <a href="#" className={className}>
+                          {link.label}
+                        </a>
+                      )}
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           ))}
